@@ -1,0 +1,24 @@
+# pyproject.toml
+
+# 配置 black 格式化工具
+[tool.black]
+line-length = 88  # 每行最大字符数（black默认值，可根据项目调整）
+target-version = ['py39']  # 目标Python版本（根据你的项目填写，如py38、py310）
+include = '\.pyi?$'  # 要格式化的文件类型（.py和.pyi文件）
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | dist
+)/
+'''  # 排除不需要格式化的目录（如虚拟环境、git目录）
+
+# 配置 flake8 代码检查工具
+[tool.flake8]
+max-line-length = 88  # 与black保持一致，避免冲突
+extend-ignore = ["E203"]  # 忽略与black冲突的规则（E203是标点后空格的检查）
+exclude = [
+    ".git",
+    ".venv",
+    "dist",
+]  # 排除检查的目录
